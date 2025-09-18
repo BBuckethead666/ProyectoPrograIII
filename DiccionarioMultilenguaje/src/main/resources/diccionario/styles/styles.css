@@ -1,0 +1,91 @@
+/* Estilos generales */
+.root {
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+    -fx-background-color: #f8f9fa;
+}
+
+/* Título principal */
+.title-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 0 0 10px 0;
+}
+
+/* Botones primarios */
+.primary-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 16px;
+    -fx-background-radius: 5px;
+}
+
+.primary-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+/* Botones secundarios */
+.secondary-button {
+    -fx-background-color: #95a5a6;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 16px;
+    -fx-background-radius: 5px;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #7f8c8d;
+}
+
+/* Botones de peligro */
+.danger-button {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 16px;
+    -fx-background-radius: 5px;
+}
+
+.danger-button:hover {
+    -fx-background-color: #c0392b;
+}
+
+/* Lista de palabras */
+.word-list {
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.word-list .list-cell {
+    -fx-padding: 10px;
+    -fx-border-color: transparent transparent #ecf0f1 transparent;
+}
+
+.word-list .list-cell:filled:hover {
+    -fx-background-color: #e3f2fd;
+}
+
+.word-list .list-cell:filled:selected {
+    -fx-background-color: #bbdefb;
+}
+
+/* Barra de estado */
+.status-label {
+    -fx-font-style: italic;
+    -fx-text-fill: #7f8c8d;
+    -fx-padding: 10px 0 0 0;
+}
+
+/* Campos de texto */
+.text-field, .combo-box {
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #bdc3c7;
+    -fx-padding: 8px;
+}
+
+.text-field:focused, .combo-box:focused {
+    -fx-border-color: #3498db;
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="diccionario.controller.MainViewController">
+
+    <!-- Parte superior: barra de búsqueda -->
+    <top>
+        <HBox spacing="10" padding="10">
+            <TextField fx:id="inputBuscar" promptText="Buscar palabra..." HBox.hgrow="ALWAYS"/>
+            <Button text="Buscar" onAction="#onBuscar"/>
+        </HBox>
+    </top>
+
+    <!-- Centro: lista de palabras -->
+    <center>
+        <ListView fx:id="listaPalabras" />
+    </center>
+
+    <!-- Parte inferior: agregar nueva palabra -->
+    <bottom>
+        <HBox spacing="10" padding="10">
+            <TextField fx:id="inputAgregar" promptText="Nueva palabra"/>
+            <TextField fx:id="inputCategoria" promptText="Categoría gramatical"/>
+            <Button text="Agregar" onAction="#onAgregar"/>
+        </HBox>
+    </bottom>
+</BorderPane>

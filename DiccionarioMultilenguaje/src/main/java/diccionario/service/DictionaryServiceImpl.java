@@ -1,0 +1,215 @@
+package diccionario.service;
+
+import diccionario.model.WordEntry;
+import diccionario.model.Language;
+import diccionario.persistence.JsonStorage;
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class DictionaryServiceImpl implements DictionaryService {
+    private List<WordEntry> words;
+    private AutocompleteService autocompleteService;
+    private JsonStorage jsonStorage;
+    
+    public DictionaryServiceImpl() {
+        this.words = new ArrayList<>();
+        this.autocompleteService = new AutocompleteService();
+        this.jsonStorage = new JsonStorage();
+    }
+    
+    public DictionaryServiceImpl(String filePath) {
+        this();
+        // Cargar desde archivo si se especifica
+    }
+    
+    // --- OPERACIONES CRUD ---
+    
+    @Override
+    public void addWord(WordEntry word) {
+        // Validar que la palabra no exista ya
+        if (getWord(word.getId()).isPresent()) {
+            throw new IllegalArgumentException("La palabra con ID " + word.getId() + " ya existe");
+        }
+        
+        // Validar traducciones mínimas
+        if (word.getTranslations().isEmpty()) {
+            throw new IllegalArgumentException("La palabra debe tener al menos una traducción");
+        }
+        
+        words.add(word);
+        autocompleteService.addWord(word);
+    }
+    
+    @Override
+    public void updateWord(String id, WordEntry updatedWord) {
+        Optional<WordEntry> existingWord = getWord(id);
+        if (existingWord.isPresent()) {
+            WordEntry oldWord = existingWord.get();
+            words.remove(oldWord);
+            words.add(updatedWord);
+            
+            autocompleteService.updateWord(oldWord, updatedWord);
+        } else {
+            throw new IllegalArgumentException("Palabra con ID " + id + " no encontrada");
+        }
+    }
+    
+    @Override
+    public boolean deleteWord(String id) {
+        Optional<WordEntry> word = getWord(id);
+        if (word.isPresent()) {
+            words.remove(word.get());
+            autocompleteService.removeWord(id);
+            return true;
+        }
+        return false;
+    }
+    
+    @Override
+    public Optional<WordEntry> getWord(String id) {
+        return words.stream()
+                .filter(word -> word.getId().equals(id))
+                .findFirst();
+    }
+    
+    @Override
+    public List<WordEntry> getAllWords() {
+        return new ArrayList<>(words); // Devolver copia
+    }
+    
+    // --- BÚSQUEDAS ---
+    
+    @Override
+    public List<WordEntry> searchWords(String query, Language language) {
+        if (query == null || query.trim().isEmpty()) {
+            return getAllWords();
+        }
+        
+        String searchTerm = query.toLowerCase();
+        return words.stream()
+                .filter(word -> {
+                    String translation = word.getTranslation(language);
+                    return translation != null && 
+                           translation.toLowerCase().contains(searchTerm);
+                })
+                .collect(Collectors.toList());
+    }
+    
+    @Override
+    public List<WordEntry> searchByTranslation(String text, Language language) {
+        return words.stream()
+                .filter(word -> {
+                    String translation = word.getTranslation(language);
+                    return translation != null && 
+                           translation.equalsIgnoreCase(text);
+                })
+                .collect(Collectors.toList());
+    }
+    
+    @Override
+    public List<WordEntry> getWordsByLanguage(Language language) {
+        return words.stream()
+                .filter(word -> word.getTranslation(language) != null)
+                .collect(Collectors.toList());
+    }
+    
+    @Override
+    public List<WordEntry> getWordsByTag(String tag) {
+        return words.stream()
+                .filter(word -> word.getTags() != null && 
+                               word.getTags().stream()
+                                   .anyMatch(t -> t.equalsIgnoreCase(tag)))
+                .collect(Collectors.toList());
+    }
+    
+    // --- AUTOCOMPLETADO ---
+    
+    @Override
+    public List<WordEntry> autocomplete(String prefix, Language language) {
+        return autocompleteService.autocomplete(prefix, language);
+    }
+    
+    // --- IMPORT/EXPORT ---
+    
+    @Override
+    public boolean importWords(List<WordEntry> newWords) {
+        try {
+            for (WordEntry word : newWords) {
+                addWord(word);
+            }
+            return true;
+        } catch (Exception e) {
+            System.err.println("Error importando palabras: " + e.getMessage());
+            return false;
+        }
+    }
+    
+    @Override
+    public List<WordEntry> exportWords() {
+        return new ArrayList<>(words);
+    }
+    
+    // --- ESTADÍSTICAS ---
+    
+    @Override
+    public int getTotalWordCount() {
+        return words.size();
+    }
+    
+    @Override
+    public Map<Language, Integer> getWordCountByLanguage() {
+        Map<Language, Integer> counts = new HashMap<>();
+        
+        for (Language language : Language.values()) {
+            long count = words.stream()
+                    .filter(word -> word.getTranslation(language) != null)
+                    .count();
+            counts.put(language, (int) count);
+        }
+        
+        return counts;
+    }
+    
+    // --- PERSISTENCIA ---
+    
+    @Override
+    public void saveDictionary() throws Exception {
+        jsonStorage.saveWords(words);
+    }
+    
+    @Override
+    public void loadDictionary() throws Exception {
+        List<WordEntry> loadedWords = jsonStorage.loadWords();
+        words.clear();
+        words.addAll(loadedWords);
+        
+        // Reconstruir el trie de autocompletado
+        autocompleteService.rebuildTries(words);
+    }
+    
+    // --- MÉTODOS UTILITARIOS ---
+    
+    public void clearDictionary() {
+        words.clear();
+        autocompleteService.clear();
+    }
+    
+    public boolean isWordIdAvailable(String id) {
+        return getWord(id).isEmpty();
+    }
+    
+    public List<String> suggestWordId(String baseWord) {
+        // Sugerir IDs disponibles basados en una palabra
+        String baseId = baseWord.toLowerCase().replace(" ", "-");
+        List<String> suggestions = new ArrayList<>();
+        
+        for (int i = 1; i <= 10; i++) {
+            String suggestedId = baseId + "-" + String.format("%03d", i);
+            if (isWordIdAvailable(suggestedId)) {
+                suggestions.add(suggestedId);
+            }
+        }
+        
+        return suggestions;
+    }
+}

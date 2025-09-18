@@ -1,77 +1,108 @@
 package diccionario.model;
-import java.util.ArrayList;
-import java.util.List;
 
-/**
- * Estructura de datos Trie (árbol de prefijos) para almacenar palabras.
- * Permite inserción y búsqueda eficiente de traducciones.
- */
+import java.util.*;
+
 public class Trie {
+    private TrieNode root;
 
-    /** Nodo raíz del Trie */
-    private Nodo raiz;
-
-    /** Constructor: inicializa el Trie vacío */
     public Trie() {
-        this.raiz = new Nodo();
+        this.root = new TrieNode();
     }
 
     /**
-     * Inserta una palabra en el Trie.
-     *
-     * @param palabra objeto Palabra a insertar
+     * Inserta una palabra en el trie
+     * @param word La palabra a insertar
+     * @param wordId El ID de la palabra en el diccionario
      */
-    public void insertar(Palabra palabra) {
-        Nodo nodoActual = raiz;
-        String texto = palabra.getTexto().toLowerCase();
+    public void insert(String word, String wordId) {
+        TrieNode current = root;
+        word = word.toLowerCase(); // Búsqueda case-insensitive
 
-        for (char c : texto.toCharArray()) {
-            nodoActual.getHijos().putIfAbsent(c, new Nodo());
-            nodoActual = nodoActual.getHijos().get(c);
-        }
-
-        nodoActual.setEsFinDePalabra(true);
-        nodoActual.setPalabra(palabra);
-    }
-
-    /**
-     * Busca una palabra en el Trie.
-     *
-     * @param texto texto de la palabra a buscar
-     * @return la Palabra encontrada o null si no existe
-     */
-    public Palabra buscar(String texto) {
-        Nodo nodoActual = raiz;
-        String palabra = texto.toLowerCase();
-
-        for (char c : palabra.toCharArray()) {
-            if (!nodoActual.getHijos().containsKey(c)) {
-                return null;
+        for (char c : word.toCharArray()) {
+            if (!current.hasChild(c)) {
+                current.addChild(c, new TrieNode());
             }
-            nodoActual = nodoActual.getHijos().get(c);
+            current = current.getChild(c);
         }
 
-        return nodoActual.isEsFinDePalabra() ? nodoActual.getPalabra() : null;
+        current.setEndOfWord(true);
+        current.addWordId(wordId);
     }
 
     /**
-     * Devuelve todas las palabras almacenadas en el Trie.
-     *
-     * @return lista de Palabra
+     * Busca palabras que comiencen con el prefijo dado
+     * @param prefix El prefijo a buscar
+     * @return Lista de IDs de palabras que coinciden
      */
-    public List<Palabra> obtenerTodasLasPalabras() {
-        List<Palabra> lista = new ArrayList<>();
-        recorrer(raiz, lista);
-        return lista;
+    public List<String> searchByPrefix(String prefix) {
+        List<String> results = new ArrayList<>();
+        TrieNode current = root;
+        prefix = prefix.toLowerCase();
+
+        // Navegar hasta el final del prefijo
+        for (char c : prefix.toCharArray()) {
+            if (!current.hasChild(c)) {
+                return results; // Prefijo no encontrado
+            }
+            current = current.getChild(c);
+        }
+
+        // Recoger todas las palabras desde este nodo
+        collectWords(current, results);
+        return results;
     }
 
-    /** Método auxiliar para recorrer el Trie */
-    private void recorrer(Nodo nodo, List<Palabra> lista) {
-        if (nodo.isEsFinDePalabra() && nodo.getPalabra() != null) {
-            lista.add(nodo.getPalabra());
+    /**
+     * Método recursivo para recolectar todas las palabras desde un nodo
+     */
+    private void collectWords(TrieNode node, List<String> results) {
+        if (node.isEndOfWord()) {
+            results.addAll(node.getWordIds());
         }
-        for (Nodo hijo : nodo.getHijos().values()) {
-            recorrer(hijo, lista);
+
+        for (TrieNode child : node.getChildren().values()) {
+            collectWords(child, results);
         }
+    }
+
+    /**
+     * Verifica si una palabra existe en el trie
+     */
+    public boolean containsWord(String word) {
+        TrieNode current = root;
+        word = word.toLowerCase();
+
+        for (char c : word.toCharArray()) {
+            if (!current.hasChild(c)) {
+                return false;
+            }
+            current = current.getChild(c);
+        }
+
+        return current.isEndOfWord();
+    }
+
+    /**
+     * Limpia el trie completamente
+     */
+    public void clear() {
+        this.root = new TrieNode();
+    }
+
+    /**
+     * Obtiene el número aproximado de palabras en el trie
+     */
+    public int size() {
+        return countWords(root);
+    }
+
+    private int countWords(TrieNode node) {
+        int count = node.isEndOfWord() ? node.getWordIds().size() : 0;
+
+        for (TrieNode child : node.getChildren().values()) {
+            count += countWords(child);
+        }
+
+        return count;
     }
 }

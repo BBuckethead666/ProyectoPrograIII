@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="diccionario.controller.MainController" 
+      spacing="10" style="-fx-padding: 20;" stylesheets="@../styles/styles.css">
+    
+    <!-- Header -->
+    <Label text="📚 Diccionario Multilenguaje" styleClass="title-label"/>
+    
+    <!-- Barra de búsqueda -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="🔍 Buscar en:"/>
+        <ComboBox fx:id="languageComboBox" prefWidth="120"/>
+        <TextField fx:id="searchField" promptText="Escribe para buscar..." prefWidth="300"/>
+        <Button text="Buscar" onAction="#handleSearch" styleClass="primary-button"/>
+    </HBox>
+    
+    <!-- Lista de palabras -->
+    <ListView fx:id="wordsListView" prefHeight="300" styleClass="word-list"/>
+    
+    <!-- Botones de acción -->
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="➕ Agregar" onAction="#handleAddWord" styleClass="primary-button"/>
+        <Button text="✏️ Editar" onAction="#handleEditWord" styleClass="secondary-button"/>
+        <Button text="🗑️ Eliminar" onAction="#handleDeleteWord" styleClass="danger-button"/>
+        <Button text="📊 Stats" onAction="#handleShowStats" styleClass="secondary-button"/>
+        <Button text="💾 Guardar" onAction="#handleSave" styleClass="secondary-button"/>
+        <Button text="📂 Cargar" onAction="#handleLoad" styleClass="secondary-button"/>
+    </HBox>
+    
+    <!-- Barra de estado -->
+    <Label fx:id="statusLabel" text="✅ Listo" styleClass="status-label"/>
+    
+</VBox>

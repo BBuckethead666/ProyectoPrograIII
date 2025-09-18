@@ -1,0 +1,9 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "path/to/javafx-sdk-17.0.2/lib/*.jar"
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
+}
