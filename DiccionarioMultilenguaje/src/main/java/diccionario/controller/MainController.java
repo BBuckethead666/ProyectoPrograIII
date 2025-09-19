@@ -6,7 +6,11 @@ import diccionario.service.DictionaryServiceImpl;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.collections.FXCollections;
+import javafx.scene.layout.GridPane;
+import javafx.fxml.FXMLLoader;
 import java.util.*;
+
+
 
 public class MainController {
     @FXML private ComboBox<Language> languageComboBox;
@@ -73,21 +77,81 @@ public class MainController {
         statusLabel.setText("🔍 Encontradas: " + results.size() + " palabras");
     }
     
-    @FXML
-    private void handleAddWord() {
-        showInfo("Agregar palabra", "Funcionalidad de agregar palabra en desarrollo");
-    }
-    
-    @FXML
-    private void handleEditWord() {
-        WordEntry selected = wordsListView.getSelectionModel().getSelectedItem();
-        if (selected != null) {
-            showInfo("Editar palabra", "Editando: " + selected.getId());
-        } else {
-            showWarning("Selección requerida", "Por favor selecciona una palabra para editar");
+@FXML
+private void handleAddWord() {
+    try {
+        System.out.println("🔄 Intentando cargar diálogo...");
+        
+        // Crear el diálogo
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.setTitle("Agregar Nueva Palabra");
+        dialog.setHeaderText("Complete los datos de la nueva palabra");
+        
+        // Cargar el FXML del diálogo
+        FXMLLoader loader = new FXMLLoader();
+        java.net.URL fxmlUrl = getClass().getResource("/diccionario/view/add-word-dialog.fxml");
+        
+        if (fxmlUrl == null) {
+            showError("Error", "No se encontró el archivo FXML del diálogo");
+            System.out.println("❌ No se encontró el FXML en: /diccionario/view/add-word-dialog.fxml");
+            return;
         }
+        
+        System.out.println("✅ FXML encontrado: " + fxmlUrl);
+        
+        loader.setLocation(fxmlUrl);
+        GridPane dialogPane = loader.load();
+        System.out.println("✅ FXML cargado correctamente");
+        
+        // Obtener el controlador
+        AddWordController controller = loader.getController();
+        
+        if (controller == null) {
+            showError("Error", "No se pudo crear el controlador del diálogo");
+            System.out.println("❌ Controller es null");
+            return;
+        }
+        
+        System.out.println("✅ Controller obtenido: " + controller);
+        
+        // Configurar el diálogo
+        dialog.getDialogPane().setContent(dialogPane);
+        dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
+        
+        // Mostrar el diálogo
+        Optional<ButtonType> result = dialog.showAndWait();
+        
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            if (!controller.isValid()) {
+                showError("Error", "Complete ID y al menos una traducción");
+                return;
+            }
+            
+            // Crear palabra simple por ahora
+            WordEntry newWord = new WordEntry();
+            newWord.setId(controller.getId());
+            
+            if (!controller.getSpanish().isEmpty()) 
+                newWord.addTranslation(Language.SPANISH, controller.getSpanish());
+            if (!controller.getEnglish().isEmpty()) 
+                newWord.addTranslation(Language.ENGLISH, controller.getEnglish());
+            if (!controller.getFrench().isEmpty()) 
+                newWord.addTranslation(Language.FRENCH, controller.getFrench());
+            if (!controller.getGerman().isEmpty()) 
+                newWord.addTranslation(Language.GERMAN, controller.getGerman());
+            
+            dictionaryService.addWord(newWord);
+            refreshWordList();
+            
+            statusLabel.setText("✅ Palabra agregada: " + newWord.getId());
+        }
+        
+    } catch (Exception e) {
+        System.out.println("❌ Error: " + e.getMessage());
+        e.printStackTrace();
+        showError("Error", "Error al abrir diálogo: " + e.getMessage());
     }
-    
+} 
     @FXML
     private void handleDeleteWord() {
         WordEntry selected = wordsListView.getSelectionModel().getSelectedItem();
@@ -158,4 +222,14 @@ public class MainController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+    @FXML
+private void handleEditWord() {
+    WordEntry selected = wordsListView.getSelectionModel().getSelectedItem();
+    if (selected != null) {
+        showInfo("Editar palabra", "Funcionalidad de edición en desarrollo. Palabra seleccionada: " + selected.getId());
+        // TODO: Implementar la edición completa
+    } else {
+        showWarning("Selección requerida", "Por favor selecciona una palabra para editar");
+    }
+}
 }

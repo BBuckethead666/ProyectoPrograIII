@@ -4,11 +4,10 @@ C:\Users\USER\OneDrive\Documentos\prograIII\Proyecto\DiccionarioMultilenguaje\sr
 C:\Users\USER\OneDrive\Documentos\prograIII\Proyecto\DiccionarioMultilenguaje\src\main\java\diccionario\controller\MainController.java
 C:\Users\USER\OneDrive\Documentos\prograIII\Proyecto\DiccionarioMultilenguaje\src\main\java\diccionario\model\Language.java
 C:\Users\USER\OneDrive\Documentos\prograIII\Proyecto\DiccionarioMultilenguaje\src\main\java\diccionario\service\DictionaryService.java
-C:\Users\USER\OneDrive\Documentos\prograIII\Proyecto\DiccionarioMultilenguaje\src\main\java\diccionario\config\Internationalization.java
 C:\Users\USER\OneDrive\Documentos\prograIII\Proyecto\DiccionarioMultilenguaje\src\main\java\diccionario\service\DictionaryServiceImpl.java
 C:\Users\USER\OneDrive\Documentos\prograIII\Proyecto\DiccionarioMultilenguaje\src\main\java\diccionario\model\Trie.java
 C:\Users\USER\OneDrive\Documentos\prograIII\Proyecto\DiccionarioMultilenguaje\src\main\java\diccionario\persistence\Storage.java
+C:\Users\USER\OneDrive\Documentos\prograIII\Proyecto\DiccionarioMultilenguaje\src\main\java\diccionario\controller\AddWordController.java
 C:\Users\USER\OneDrive\Documentos\prograIII\Proyecto\DiccionarioMultilenguaje\src\main\java\diccionario\model\TrieNode.java
 C:\Users\USER\OneDrive\Documentos\prograIII\Proyecto\DiccionarioMultilenguaje\src\main\java\diccionario\util\IdGenerator.java
 C:\Users\USER\OneDrive\Documentos\prograIII\Proyecto\DiccionarioMultilenguaje\src\main\java\diccionario\Main.java
-C:\Users\USER\OneDrive\Documentos\prograIII\Proyecto\DiccionarioMultilenguaje\src\main\java\diccionario\config\AppConfig.java

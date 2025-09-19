@@ -79,6 +79,7 @@
                     <mainClass>diccionario.Main</mainClass>
                 </configuration>
             </plugin>
+            
         </plugins>
     </build>
 </project>

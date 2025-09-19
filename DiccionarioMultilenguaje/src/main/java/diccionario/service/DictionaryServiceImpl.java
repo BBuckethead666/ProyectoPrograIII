@@ -17,13 +17,6 @@ public class DictionaryServiceImpl implements DictionaryService {
         this.jsonStorage = new JsonStorage();
     }
     
-    public DictionaryServiceImpl(String filePath) {
-        this();
-        // Cargar desde archivo si se especifica
-    }
-    
-    // --- OPERACIONES CRUD ---
-    
     @Override
     public void addWord(WordEntry word) {
         // Validar que la palabra no exista ya
@@ -34,6 +27,11 @@ public class DictionaryServiceImpl implements DictionaryService {
         // Validar traducciones mínimas
         if (word.getTranslations().isEmpty()) {
             throw new IllegalArgumentException("La palabra debe tener al menos una traducción");
+        }
+        
+        // Validar que el ID no esté vacío
+        if (word.getId() == null || word.getId().trim().isEmpty()) {
+            throw new IllegalArgumentException("El ID de la palabra no puede estar vacío");
         }
         
         words.add(word);
@@ -74,10 +72,8 @@ public class DictionaryServiceImpl implements DictionaryService {
     
     @Override
     public List<WordEntry> getAllWords() {
-        return new ArrayList<>(words); // Devolver copia
+        return new ArrayList<>(words);
     }
-    
-    // --- BÚSQUEDAS ---
     
     @Override
     public List<WordEntry> searchWords(String query, Language language) {
@@ -122,14 +118,10 @@ public class DictionaryServiceImpl implements DictionaryService {
                 .collect(Collectors.toList());
     }
     
-    // --- AUTOCOMPLETADO ---
-    
     @Override
     public List<WordEntry> autocomplete(String prefix, Language language) {
         return autocompleteService.autocomplete(prefix, language);
     }
-    
-    // --- IMPORT/EXPORT ---
     
     @Override
     public boolean importWords(List<WordEntry> newWords) {
@@ -148,8 +140,6 @@ public class DictionaryServiceImpl implements DictionaryService {
     public List<WordEntry> exportWords() {
         return new ArrayList<>(words);
     }
-    
-    // --- ESTADÍSTICAS ---
     
     @Override
     public int getTotalWordCount() {
@@ -170,8 +160,6 @@ public class DictionaryServiceImpl implements DictionaryService {
         return counts;
     }
     
-    // --- PERSISTENCIA ---
-    
     @Override
     public void saveDictionary() throws Exception {
         jsonStorage.saveWords(words);
@@ -183,11 +171,8 @@ public class DictionaryServiceImpl implements DictionaryService {
         words.clear();
         words.addAll(loadedWords);
         
-        // Reconstruir el trie de autocompletado
         autocompleteService.rebuildTries(words);
     }
-    
-    // --- MÉTODOS UTILITARIOS ---
     
     public void clearDictionary() {
         words.clear();
@@ -196,20 +181,5 @@ public class DictionaryServiceImpl implements DictionaryService {
     
     public boolean isWordIdAvailable(String id) {
         return getWord(id).isEmpty();
-    }
-    
-    public List<String> suggestWordId(String baseWord) {
-        // Sugerir IDs disponibles basados en una palabra
-        String baseId = baseWord.toLowerCase().replace(" ", "-");
-        List<String> suggestions = new ArrayList<>();
-        
-        for (int i = 1; i <= 10; i++) {
-            String suggestedId = baseId + "-" + String.format("%03d", i);
-            if (isWordIdAvailable(suggestedId)) {
-                suggestions.add(suggestedId);
-            }
-        }
-        
-        return suggestions;
     }
 }

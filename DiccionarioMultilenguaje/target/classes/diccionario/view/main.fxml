@@ -3,6 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
 
 <VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
       fx:controller="diccionario.controller.MainController" 
@@ -34,5 +35,4 @@
     
     <!-- Barra de estado -->
     <Label fx:id="statusLabel" text="✅ Listo" styleClass="status-label"/>
-    
 </VBox>

@@ -3,7 +3,6 @@ package diccionario.service;
 import diccionario.model.WordEntry;
 import diccionario.model.Language;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 public interface DictionaryService {
@@ -29,7 +28,7 @@ public interface DictionaryService {
     
     // Estadísticas
     int getTotalWordCount();
-    Map<Language, Integer> getWordCountByLanguage();
+    java.util.Map<Language, Integer> getWordCountByLanguage();
     
     // Persistencia
     void saveDictionary() throws Exception;

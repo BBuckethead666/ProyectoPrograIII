@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+          fx:controller="diccionario.controller.AddWordController"
+          hgap="10" vgap="10" style="-fx-padding: 20;">
+    
+    <Label text="ID:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <TextField fx:id="idField" promptText="Ej: hello-001" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+    
+    <Label text="Español:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <TextField fx:id="spanishField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+    
+    <Label text="Inglés:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+    <TextField fx:id="englishField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+    
+    <Label text="Francés:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+    <TextField fx:id="frenchField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+    
+    <Label text="Alemán:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+    <TextField fx:id="germanField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+</GridPane>
