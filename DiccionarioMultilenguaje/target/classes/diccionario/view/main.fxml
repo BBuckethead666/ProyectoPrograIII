@@ -1,38 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.collections.FXCollections?>
-
-<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
-      fx:controller="diccionario.controller.MainController" 
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="diccionario.controller.MainController"
       spacing="10" style="-fx-padding: 20;" stylesheets="@../styles/styles.css">
-    
-    <!-- Header -->
-    <Label text="📚 Diccionario Multilenguaje" styleClass="title-label"/>
-    
+
+    <!-- Título -->
+    <Label fx:id="titleLabel" text="%app.title" styleClass="title-label"/>
+
+    <!-- Selector de idioma de interfaz -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label fx:id="languageLabel" text="%label.language"/>
+        <ComboBox fx:id="localeComboBox" prefWidth="120"/>
+    </HBox>
+
     <!-- Barra de búsqueda -->
     <HBox spacing="10" alignment="CENTER_LEFT">
-        <Label text="🔍 Buscar en:"/>
+        <Label fx:id="searchLabel" text="%label.search"/>
         <ComboBox fx:id="languageComboBox" prefWidth="120"/>
-        <TextField fx:id="searchField" promptText="Escribe para buscar..." prefWidth="300"/>
-        <Button text="Buscar" onAction="#handleSearch" styleClass="primary-button"/>
+        <TextField fx:id="searchField" promptText="%prompt.search" prefWidth="300"/>
+        <Button fx:id="searchButton" text="%button.search" onAction="#handleSearch" styleClass="primary-button"/>
     </HBox>
-    
+
     <!-- Lista de palabras -->
     <ListView fx:id="wordsListView" prefHeight="300" styleClass="word-list"/>
-    
+
     <!-- Botones de acción -->
     <HBox spacing="10" alignment="CENTER">
-        <Button text="➕ Agregar" onAction="#handleAddWord" styleClass="primary-button"/>
-        <Button text="✏️ Editar" onAction="#handleEditWord" styleClass="secondary-button"/>
-        <Button text="🗑️ Eliminar" onAction="#handleDeleteWord" styleClass="danger-button"/>
-        <Button text="📊 Stats" onAction="#handleShowStats" styleClass="secondary-button"/>
-        <Button text="💾 Guardar" onAction="#handleSave" styleClass="secondary-button"/>
-        <Button text="📂 Cargar" onAction="#handleLoad" styleClass="secondary-button"/>
+        <Button fx:id="addButton" text="%button.add" onAction="#handleAddWord" styleClass="primary-button"/>
+        <Button fx:id="editButton" text="%button.edit" onAction="#handleEditWord" styleClass="secondary-button"/>
+        <Button fx:id="deleteButton" text="%button.delete" onAction="#handleDeleteWord" styleClass="danger-button"/>
+        <Button fx:id="statsButton" text="%button.stats" onAction="#handleShowStats" styleClass="secondary-button"/>
+        <Button fx:id="saveButton" text="%button.save" onAction="#handleSave" styleClass="secondary-button"/>
+        <Button fx:id="loadButton" text="%button.load" onAction="#handleLoad" styleClass="secondary-button"/>
     </HBox>
-    
+
     <!-- Barra de estado -->
-    <Label fx:id="statusLabel" text="✅ Listo" styleClass="status-label"/>
+    <Label fx:id="statusLabel" text="%status.ready" styleClass="status-label"/>
 </VBox>

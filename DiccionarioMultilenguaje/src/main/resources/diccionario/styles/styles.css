@@ -2,6 +2,7 @@
 .root {
     -fx-font-family: 'Segoe UI', Arial, sans-serif;
     -fx-background-color: #f8f9fa;
+    background-color: #f8f9fa;
 }
 
 /* Título principal */
@@ -15,6 +16,7 @@
 /* Botones primarios */
 .primary-button {
     -fx-background-color: #3498db;
+    background-color: #3498db;
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-padding: 8px 16px;
@@ -23,11 +25,13 @@
 
 .primary-button:hover {
     -fx-background-color: #2980b9;
+    background-color: #2980b9;
 }
 
 /* Botones secundarios */
 .secondary-button {
     -fx-background-color: #95a5a6;
+    background-color: #95a5a6;
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-padding: 8px 16px;
@@ -36,11 +40,13 @@
 
 .secondary-button:hover {
     -fx-background-color: #7f8c8d;
+    background-color: #7f8c8d;
 }
 
 /* Botones de peligro */
 .danger-button {
     -fx-background-color: #e74c3c;
+    background-color: #e74c3c;
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-padding: 8px 16px;
@@ -49,6 +55,7 @@
 
 .danger-button:hover {
     -fx-background-color: #c0392b;
+    background-color: #c0392b;
 }
 
 /* Lista de palabras */
@@ -56,6 +63,8 @@
     -fx-border-color: #bdc3c7;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
+    -fx-background-color: white;
+    background-color: white;
 }
 
 .word-list .list-cell {
@@ -65,10 +74,12 @@
 
 .word-list .list-cell:filled:hover {
     -fx-background-color: #e3f2fd;
+    background-color: #e3f2fd;
 }
 
 .word-list .list-cell:filled:selected {
     -fx-background-color: #bbdefb;
+    background-color: #bbdefb;
 }
 
 /* Barra de estado */
@@ -78,12 +89,14 @@
     -fx-padding: 10px 0 0 0;
 }
 
-/* Campos de texto */
+/* Campos de texto y ComboBox */
 .text-field, .combo-box {
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
     -fx-border-color: #bdc3c7;
     -fx-padding: 8px;
+    -fx-background-color: white;
+    background-color: white;
 }
 
 .text-field:focused, .combo-box:focused {
