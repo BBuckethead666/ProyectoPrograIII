@@ -1,104 +1,71 @@
-/* Estilos generales */
+/* Fondo general con degradado llamativo */
 .root {
-    -fx-font-family: 'Segoe UI', Arial, sans-serif;
-    -fx-background-color: #f8f9fa;
-    background-color: #f8f9fa;
+    -fx-background-color: linear-gradient(to bottom right, #74ebd5, #ACB6E5);
+    -fx-font-family: "Segoe UI", sans-serif;
 }
 
-/* Título principal */
-.title-label {
-    -fx-font-size: 24px;
-    -fx-font-weight: bold;
+/* Títulos principales */
+.label {
+    -fx-font-size: 14px;
     -fx-text-fill: #2c3e50;
-    -fx-padding: 0 0 10px 0;
 }
 
-/* Botones primarios */
-.primary-button {
-    -fx-background-color: #3498db;
-    background-color: #3498db;
+/* Combobox y campos de texto */
+.combo-box, .text-field {
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #ffffff88;
+    -fx-padding: 8px;
+    -fx-background-color: rgba(255,255,255,0.9);
+    -fx-font-size: 13px;
+}
+
+/* Botón general */
+.button {
+    -fx-background-color: linear-gradient(to right, #ff6a00, #ee0979);
     -fx-text-fill: white;
     -fx-font-weight: bold;
-    -fx-padding: 8px 16px;
-    -fx-background-radius: 5px;
+    -fx-background-radius: 10px;
+    -fx-padding: 8px 14px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 6, 0, 0, 2);
+    -fx-font-size: 13px;
 }
 
-.primary-button:hover {
-    -fx-background-color: #2980b9;
-    background-color: #2980b9;
+.button:hover {
+    -fx-background-color: linear-gradient(to right, #ee0979, #ff6a00);
 }
 
-/* Botones secundarios */
-.secondary-button {
-    -fx-background-color: #95a5a6;
-    background-color: #95a5a6;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-padding: 8px 16px;
-    -fx-background-radius: 5px;
-}
-
-.secondary-button:hover {
-    -fx-background-color: #7f8c8d;
-    background-color: #7f8c8d;
-}
-
-/* Botones de peligro */
-.danger-button {
-    -fx-background-color: #e74c3c;
-    background-color: #e74c3c;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-padding: 8px 16px;
-    -fx-background-radius: 5px;
-}
-
-.danger-button:hover {
-    -fx-background-color: #c0392b;
-    background-color: #c0392b;
-}
-
-/* Lista de palabras */
+/* Lista de palabras estilo tarjeta */
 .word-list {
-    -fx-border-color: #bdc3c7;
-    -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
-    -fx-background-color: white;
-    background-color: white;
+    -fx-background-color: transparent;
+    -fx-padding: 10;
 }
 
 .word-list .list-cell {
+    -fx-background-color: rgba(255,255,255,0.9);
+    -fx-background-radius: 8px;
+    -fx-border-color: #ffffffaa;
+    -fx-border-radius: 8px;
     -fx-padding: 10px;
-    -fx-border-color: transparent transparent #ecf0f1 transparent;
+    -fx-font-size: 14px;
+    -fx-text-fill: #2c3e50;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 5, 0, 0, 2);
+    -fx-margin: 6 0 6 0;
 }
 
 .word-list .list-cell:filled:hover {
-    -fx-background-color: #e3f2fd;
-    background-color: #e3f2fd;
+    -fx-background-color: #ffeaa7;
 }
 
 .word-list .list-cell:filled:selected {
-    -fx-background-color: #bbdefb;
-    background-color: #bbdefb;
+    -fx-background-color: #fab1a0;
 }
 
-/* Barra de estado */
-.status-label {
-    -fx-font-style: italic;
-    -fx-text-fill: #7f8c8d;
-    -fx-padding: 10px 0 0 0;
-}
-
-/* Campos de texto y ComboBox */
-.text-field, .combo-box {
-    -fx-background-radius: 5px;
-    -fx-border-radius: 5px;
-    -fx-border-color: #bdc3c7;
-    -fx-padding: 8px;
-    -fx-background-color: white;
-    background-color: white;
-}
-
-.text-field:focused, .combo-box:focused {
-    -fx-border-color: #3498db;
+/* Footer estilo tarjeta */
+.footer-box {
+    -fx-background-color: rgba(255,255,255,0.95);
+    -fx-background-radius: 10px;
+    -fx-padding: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 6, 0, 0, 2);
 }

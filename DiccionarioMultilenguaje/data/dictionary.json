@@ -1,42 +1,906 @@
 {
   "words": [
     {
-      "id": "hello-1758151470232",
+      "id": "dog",
       "translations": {
-        "GERMAN": "hallo",
-        "ENGLISH": "hello",
-        "SPANISH": "hola",
-        "FRENCH": "bonjour"
+        "ENGLISH": "dog",
+        "SPANISH": "perro",
+        "FRENCH": "chien",
+        "GERMAN": "Hund"
       },
-      "definition": "Hello world",
+      "definition": "A domesticated carnivorous mammal",
       "examples": [
-        "Example 1",
-        "Example 2"
+        "The dog barked",
+        "My dog is friendly"
       ],
       "tags": [
         "noun",
-        "common"
+        "animal"
       ]
     },
     {
-      "id": "house-1758151470245",
+      "id": "cat",
       "translations": {
-        "GERMAN": "haus",
-        "ENGLISH": "house",
-        "SPANISH": "casa",
-        "FRENCH": "maison"
+        "ENGLISH": "cat",
+        "SPANISH": "gato",
+        "FRENCH": "chat",
+        "GERMAN": "Katze"
       },
-      "definition": "A building for living",
+      "definition": "A small domesticated carnivorous mammal",
       "examples": [
-        "Example 1",
-        "Example 2"
+        "The cat is sleeping",
+        "Black cats are common"
       ],
       "tags": [
         "noun",
-        "common"
+        "animal"
+      ]
+    },
+    {
+      "id": "bird",
+      "translations": {
+        "ENGLISH": "bird",
+        "SPANISH": "pájaro",
+        "FRENCH": "oiseau",
+        "GERMAN": "Vogel"
+      },
+      "definition": "A warm-blooded egg-laying vertebrate",
+      "examples": [
+        "Birds can fly",
+        "I saw a bird"
+      ],
+      "tags": [
+        "noun",
+        "animal"
+      ]
+    },
+    {
+      "id": "fish",
+      "translations": {
+        "ENGLISH": "fish",
+        "SPANISH": "pez",
+        "FRENCH": "poisson",
+        "GERMAN": "Fisch"
+      },
+      "definition": "A limbless cold-blooded vertebrate animal with gills",
+      "examples": [
+        "Fish swim in water",
+        "I ate a fish"
+      ],
+      "tags": [
+        "noun",
+        "animal"
+      ]
+    },
+    {
+      "id": "lion",
+      "translations": {
+        "ENGLISH": "lion",
+        "SPANISH": "león",
+        "FRENCH": "lion",
+        "GERMAN": "Löwe"
+      },
+      "definition": "A large tawny-colored big cat",
+      "examples": [
+        "The lion roars",
+        "Lions live in Africa"
+      ],
+      "tags": [
+        "noun",
+        "animal"
+      ]
+    },
+    {
+      "id": "tiger",
+      "translations": {
+        "ENGLISH": "tiger",
+        "SPANISH": "tigre",
+        "FRENCH": "tigre",
+        "GERMAN": "Tiger"
+      },
+      "definition": "A large wild cat",
+      "examples": [
+        "The tiger hunts",
+        "Tigers are strong"
+      ],
+      "tags": [
+        "noun",
+        "animal"
+      ]
+    },
+    {
+      "id": "horse",
+      "translations": {
+        "ENGLISH": "horse",
+        "SPANISH": "caballo",
+        "FRENCH": "cheval",
+        "GERMAN": "Pferd"
+      },
+      "definition": "A large domesticated animal used for riding",
+      "examples": [
+        "The horse runs",
+        "I ride a horse"
+      ],
+      "tags": [
+        "noun",
+        "animal"
+      ]
+    },
+    {
+      "id": "cow",
+      "translations": {
+        "ENGLISH": "cow",
+        "SPANISH": "vaca",
+        "FRENCH": "vache",
+        "GERMAN": "Kuh"
+      },
+      "definition": "A large domesticated animal raised for milk or meat",
+      "examples": [
+        "The cow gives milk",
+        "We saw a cow"
+      ],
+      "tags": [
+        "noun",
+        "animal"
+      ]
+    },
+    {
+      "id": "sheep",
+      "translations": {
+        "ENGLISH": "sheep",
+        "SPANISH": "oveja",
+        "FRENCH": "mouton",
+        "GERMAN": "Schaf"
+      },
+      "definition": "A domesticated ruminant animal with wool",
+      "examples": [
+        "The sheep is grazing",
+        "Sheep give wool"
+      ],
+      "tags": [
+        "noun",
+        "animal"
+      ]
+    },
+    {
+      "id": "pig",
+      "translations": {
+        "ENGLISH": "pig",
+        "SPANISH": "cerdo",
+        "FRENCH": "cochon",
+        "GERMAN": "Schwein"
+      },
+      "definition": "A domesticated mammal kept for meat",
+      "examples": [
+        "The pig is eating",
+        "Pigs are intelligent"
+      ],
+      "tags": [
+        "noun",
+        "animal"
+      ]
+    },
+    {
+      "id": "apple",
+      "translations": {
+        "ENGLISH": "apple",
+        "SPANISH": "manzana",
+        "FRENCH": "pomme",
+        "GERMAN": "Apfel"
+      },
+      "definition": "A round fruit",
+      "examples": [
+        "I ate an apple",
+        "The apple is red"
+      ],
+      "tags": [
+        "noun",
+        "food"
+      ]
+    },
+    {
+      "id": "banana",
+      "translations": {
+        "ENGLISH": "banana",
+        "SPANISH": "banano",
+        "FRENCH": "banane",
+        "GERMAN": "Banane"
+      },
+      "definition": "A long curved fruit",
+      "examples": [
+        "Bananas are yellow",
+        "I like bananas"
+      ],
+      "tags": [
+        "noun",
+        "food"
+      ]
+    },
+    {
+      "id": "bread",
+      "translations": {
+        "ENGLISH": "bread",
+        "SPANISH": "pan",
+        "FRENCH": "pain",
+        "GERMAN": "Brot"
+      },
+      "definition": "A food made from flour and water",
+      "examples": [
+        "I bought bread",
+        "Bread is baked"
+      ],
+      "tags": [
+        "noun",
+        "food"
+      ]
+    },
+    {
+      "id": "milk",
+      "translations": {
+        "ENGLISH": "milk",
+        "SPANISH": "leche",
+        "FRENCH": "lait",
+        "GERMAN": "Milch"
+      },
+      "definition": "A white liquid produced by mammals",
+      "examples": [
+        "I drink milk",
+        "Milk is healthy"
+      ],
+      "tags": [
+        "noun",
+        "food"
+      ]
+    },
+    {
+      "id": "cheese",
+      "translations": {
+        "ENGLISH": "cheese",
+        "SPANISH": "queso",
+        "FRENCH": "fromage",
+        "GERMAN": "Käse"
+      },
+      "definition": "A food made from curdled milk",
+      "examples": [
+        "I ate cheese",
+        "Cheese melts"
+      ],
+      "tags": [
+        "noun",
+        "food"
+      ]
+    },
+    {
+      "id": "rice",
+      "translations": {
+        "ENGLISH": "rice",
+        "SPANISH": "arroz",
+        "FRENCH": "riz",
+        "GERMAN": "Reis"
+      },
+      "definition": "A cereal grain",
+      "examples": [
+        "I cooked rice",
+        "Rice is common"
+      ],
+      "tags": [
+        "noun",
+        "food"
+      ]
+    },
+    {
+      "id": "chicken",
+      "translations": {
+        "ENGLISH": "chicken",
+        "SPANISH": "pollo",
+        "FRENCH": "poulet",
+        "GERMAN": "Huhn"
+      },
+      "definition": "A domesticated bird",
+      "examples": [
+        "I eat chicken",
+        "The chicken is tasty"
+      ],
+      "tags": [
+        "noun",
+        "food"
+      ]
+    },
+    {
+      "id": "egg",
+      "translations": {
+        "ENGLISH": "egg",
+        "SPANISH": "huevo",
+        "FRENCH": "œuf",
+        "GERMAN": "Ei"
+      },
+      "definition": "An oval reproductive body laid by birds",
+      "examples": [
+        "I boiled an egg",
+        "Eggs are healthy"
+      ],
+      "tags": [
+        "noun",
+        "food"
+      ]
+    },
+    {
+      "id": "sugar",
+      "translations": {
+        "ENGLISH": "sugar",
+        "SPANISH": "azúcar",
+        "FRENCH": "sucre",
+        "GERMAN": "Zucker"
+      },
+      "definition": "A sweet substance",
+      "examples": [
+        "I added sugar",
+        "Sugar is sweet"
+      ],
+      "tags": [
+        "noun",
+        "food"
+      ]
+    },
+    {
+      "id": "salt",
+      "translations": {
+        "ENGLISH": "salt",
+        "SPANISH": "sal",
+        "FRENCH": "sel",
+        "GERMAN": "Salz"
+      },
+      "definition": "A white crystalline substance",
+      "examples": [
+        "I need salt",
+        "Salt is essential"
+      ],
+      "tags": [
+        "noun",
+        "food"
+      ]
+    },
+    {
+      "id": "school",
+      "translations": {
+        "ENGLISH": "school",
+        "SPANISH": "escuela",
+        "FRENCH": "école",
+        "GERMAN": "Schule"
+      },
+      "definition": "A place for learning",
+      "examples": [
+        "I go to school",
+        "The school is big"
+      ],
+      "tags": [
+        "noun",
+        "place"
+      ]
+    },
+    {
+      "id": "hospital",
+      "translations": {
+        "ENGLISH": "hospital",
+        "SPANISH": "hospital",
+        "FRENCH": "hôpital",
+        "GERMAN": "Krankenhaus"
+      },
+      "definition": "A place for medical care",
+      "examples": [
+        "I went to the hospital",
+        "Hospitals help people"
+      ],
+      "tags": [
+        "noun",
+        "place"
+      ]
+    },
+    {
+      "id": "park",
+      "translations": {
+        "ENGLISH": "park",
+        "SPANISH": "parque",
+        "FRENCH": "parc",
+        "GERMAN": "Park"
+      },
+      "definition": "An area of land for recreation",
+      "examples": [
+        "The park is green",
+        "We played in the park"
+      ],
+      "tags": [
+        "noun",
+        "place"
+      ]
+    },
+    {
+      "id": "city",
+      "translations": {
+        "ENGLISH": "city",
+        "SPANISH": "ciudad",
+        "FRENCH": "ville",
+        "GERMAN": "Stadt"
+      },
+      "definition": "A large town",
+      "examples": [
+        "The city is busy",
+        "I live in the city"
+      ],
+      "tags": [
+        "noun",
+        "place"
+      ]
+    },
+    {
+      "id": "village",
+      "translations": {
+        "ENGLISH": "village",
+        "SPANISH": "pueblo",
+        "FRENCH": "village",
+        "GERMAN": "Dorf"
+      },
+      "definition": "A small settlement",
+      "examples": [
+        "The village is quiet",
+        "I visited a village"
+      ],
+      "tags": [
+        "noun",
+        "place"
+      ]
+    },
+    {
+      "id": "house",
+      "translations": {
+        "ENGLISH": "house",
+        "SPANISH": "casa",
+        "FRENCH": "maison",
+        "GERMAN": "Haus"
+      },
+      "definition": "A building for people to live in",
+      "examples": [
+        "My house is big",
+        "We painted the house"
+      ],
+      "tags": [
+        "noun",
+        "place"
+      ]
+    },
+    {
+      "id": "market",
+      "translations": {
+        "ENGLISH": "market",
+        "SPANISH": "mercado",
+        "FRENCH": "marché",
+        "GERMAN": "Markt"
+      },
+      "definition": "A place where people buy and sell goods",
+      "examples": [
+        "The market is crowded",
+        "I bought fruit in the market"
+      ],
+      "tags": [
+        "noun",
+        "place"
+      ]
+    },
+    {
+      "id": "store",
+      "translations": {
+        "ENGLISH": "store",
+        "SPANISH": "tienda",
+        "FRENCH": "magasin",
+        "GERMAN": "Geschäft"
+      },
+      "definition": "A place to buy goods",
+      "examples": [
+        "The store is open",
+        "I went to the store"
+      ],
+      "tags": [
+        "noun",
+        "place"
+      ]
+    },
+    {
+      "id": "church",
+      "translations": {
+        "ENGLISH": "church",
+        "SPANISH": "iglesia",
+        "FRENCH": "église",
+        "GERMAN": "Kirche"
+      },
+      "definition": "A building for Christian worship",
+      "examples": [
+        "We went to church",
+        "The church is old"
+      ],
+      "tags": [
+        "noun",
+        "place"
+      ]
+    },
+    {
+      "id": "restaurant",
+      "translations": {
+        "ENGLISH": "restaurant",
+        "SPANISH": "restaurante",
+        "FRENCH": "restaurant",
+        "GERMAN": "Restaurant"
+      },
+      "definition": "A place where meals are served",
+      "examples": [
+        "We ate at a restaurant",
+        "Restaurants are busy"
+      ],
+      "tags": [
+        "noun",
+        "place"
+      ]
+    },
+    {
+      "id": "run",
+      "translations": {
+        "ENGLISH": "run",
+        "SPANISH": "correr",
+        "FRENCH": "courir",
+        "GERMAN": "laufen"
+      },
+      "definition": "Move fast on foot",
+      "examples": [
+        "I run every day",
+        "He runs fast"
+      ],
+      "tags": [
+        "verb",
+        "action"
+      ]
+    },
+    {
+      "id": "eat",
+      "translations": {
+        "ENGLISH": "eat",
+        "SPANISH": "comer",
+        "FRENCH": "manger",
+        "GERMAN": "essen"
+      },
+      "definition": "Put food into the mouth and chew",
+      "examples": [
+        "I eat lunch",
+        "They are eating"
+      ],
+      "tags": [
+        "verb",
+        "action"
+      ]
+    },
+    {
+      "id": "drink",
+      "translations": {
+        "ENGLISH": "drink",
+        "SPANISH": "beber",
+        "FRENCH": "boire",
+        "GERMAN": "trinken"
+      },
+      "definition": "Take liquid into the mouth",
+      "examples": [
+        "I drink water",
+        "She drinks juice"
+      ],
+      "tags": [
+        "verb",
+        "action"
+      ]
+    },
+    {
+      "id": "sleep",
+      "translations": {
+        "ENGLISH": "sleep",
+        "SPANISH": "dormir",
+        "FRENCH": "dormir",
+        "GERMAN": "schlafen"
+      },
+      "definition": "Rest with eyes closed",
+      "examples": [
+        "I sleep at night",
+        "He is sleeping"
+      ],
+      "tags": [
+        "verb",
+        "action"
+      ]
+    },
+    {
+      "id": "read",
+      "translations": {
+        "ENGLISH": "read",
+        "SPANISH": "leer",
+        "FRENCH": "lire",
+        "GERMAN": "lesen"
+      },
+      "definition": "Look at and understand written words",
+      "examples": [
+        "I read a book",
+        "She reads fast"
+      ],
+      "tags": [
+        "verb",
+        "action"
+      ]
+    },
+    {
+      "id": "write",
+      "translations": {
+        "ENGLISH": "write",
+        "SPANISH": "escribir",
+        "FRENCH": "écrire",
+        "GERMAN": "schreiben"
+      },
+      "definition": "Mark letters on a surface",
+      "examples": [
+        "I write a letter",
+        "He writes well"
+      ],
+      "tags": [
+        "verb",
+        "action"
+      ]
+    },
+    {
+      "id": "speak",
+      "translations": {
+        "ENGLISH": "speak",
+        "SPANISH": "hablar",
+        "FRENCH": "parler",
+        "GERMAN": "sprechen"
+      },
+      "definition": "Say words aloud",
+      "examples": [
+        "I speak English",
+        "She speaks softly"
+      ],
+      "tags": [
+        "verb",
+        "action"
+      ]
+    },
+    {
+      "id": "listen",
+      "translations": {
+        "ENGLISH": "listen",
+        "SPANISH": "escuchar",
+        "FRENCH": "écouter",
+        "GERMAN": "hören"
+      },
+      "definition": "Pay attention to sound",
+      "examples": [
+        "I listen to music",
+        "He listens carefully"
+      ],
+      "tags": [
+        "verb",
+        "action"
+      ]
+    },
+    {
+      "id": "walk",
+      "translations": {
+        "ENGLISH": "walk",
+        "SPANISH": "caminar",
+        "FRENCH": "marcher",
+        "GERMAN": "gehen"
+      },
+      "definition": "Move at a regular pace",
+      "examples": [
+        "I walk to work",
+        "We are walking"
+      ],
+      "tags": [
+        "verb",
+        "action"
+      ]
+    },
+    {
+      "id": "play",
+      "translations": {
+        "ENGLISH": "play",
+        "SPANISH": "jugar",
+        "FRENCH": "jouer",
+        "GERMAN": "spielen"
+      },
+      "definition": "Engage in activity for enjoyment",
+      "examples": [
+        "I play soccer",
+        "Children play"
+      ],
+      "tags": [
+        "verb",
+        "action"
+      ]
+    },
+    {
+      "id": "book",
+      "translations": {
+        "ENGLISH": "book",
+        "SPANISH": "libro",
+        "FRENCH": "livre",
+        "GERMAN": "Buch"
+      },
+      "definition": "A set of written pages",
+      "examples": [
+        "I read a book",
+        "The book is new"
+      ],
+      "tags": [
+        "noun",
+        "object"
+      ]
+    },
+    {
+      "id": "pen",
+      "translations": {
+        "ENGLISH": "pen",
+        "SPANISH": "bolígrafo",
+        "FRENCH": "stylo",
+        "GERMAN": "Stift"
+      },
+      "definition": "An instrument for writing",
+      "examples": [
+        "I use a pen",
+        "The pen is blue"
+      ],
+      "tags": [
+        "noun",
+        "object"
+      ]
+    },
+    {
+      "id": "phone",
+      "translations": {
+        "ENGLISH": "phone",
+        "SPANISH": "teléfono",
+        "FRENCH": "téléphone",
+        "GERMAN": "Telefon"
+      },
+      "definition": "A device for communication",
+      "examples": [
+        "I have a phone",
+        "The phone rings"
+      ],
+      "tags": [
+        "noun",
+        "object"
+      ]
+    },
+    {
+      "id": "car",
+      "translations": {
+        "ENGLISH": "car",
+        "SPANISH": "coche",
+        "FRENCH": "voiture",
+        "GERMAN": "Auto"
+      },
+      "definition": "A road vehicle",
+      "examples": [
+        "The car is fast",
+        "I drive a car"
+      ],
+      "tags": [
+        "noun",
+        "object"
+      ]
+    },
+    {
+      "id": "bike",
+      "translations": {
+        "ENGLISH": "bike",
+        "SPANISH": "bicicleta",
+        "FRENCH": "vélo",
+        "GERMAN": "Fahrrad"
+      },
+      "definition": "A two-wheeled vehicle",
+      "examples": [
+        "I ride a bike",
+        "The bike is red"
+      ],
+      "tags": [
+        "noun",
+        "object"
+      ]
+    },
+    {
+      "id": "chair",
+      "translations": {
+        "ENGLISH": "chair",
+        "SPANISH": "silla",
+        "FRENCH": "chaise",
+        "GERMAN": "Stuhl"
+      },
+      "definition": "A seat for one person",
+      "examples": [
+        "I sit on a chair",
+        "The chair is wooden"
+      ],
+      "tags": [
+        "noun",
+        "object"
+      ]
+    },
+    {
+      "id": "table",
+      "translations": {
+        "ENGLISH": "table",
+        "SPANISH": "mesa",
+        "FRENCH": "table",
+        "GERMAN": "Tisch"
+      },
+      "definition": "A piece of furniture with a flat top",
+      "examples": [
+        "We eat at the table",
+        "The table is big"
+      ],
+      "tags": [
+        "noun",
+        "object"
+      ]
+    },
+    {
+      "id": "computer",
+      "translations": {
+        "ENGLISH": "computer",
+        "SPANISH": "computadora",
+        "FRENCH": "ordinateur",
+        "GERMAN": "Computer"
+      },
+      "definition": "An electronic device",
+      "examples": [
+        "I use a computer",
+        "The computer is fast"
+      ],
+      "tags": [
+        "noun",
+        "object"
+      ]
+    },
+    {
+      "id": "window",
+      "translations": {
+        "ENGLISH": "window",
+        "SPANISH": "ventana",
+        "FRENCH": "fenêtre",
+        "GERMAN": "Fenster"
+      },
+      "definition": "An opening in a wall",
+      "examples": [
+        "I opened the window",
+        "The window is clean"
+      ],
+      "tags": [
+        "noun",
+        "object"
+      ]
+    },
+    {
+      "id": "door",
+      "translations": {
+        "ENGLISH": "door",
+        "SPANISH": "puerta",
+        "FRENCH": "porte",
+        "GERMAN": "Tür"
+      },
+      "definition": "A movable barrier",
+      "examples": [
+        "I opened the door",
+        "The door is closed"
+      ],
+      "tags": [
+        "noun",
+        "object"
       ]
     }
   ],
-  "lastModified": "Fri Sep 19 16:49:11 COT 2025",
+  "lastModified": "Sat Sep 20 15:48:30 COT 2025",
   "version": "1.0"
 }
