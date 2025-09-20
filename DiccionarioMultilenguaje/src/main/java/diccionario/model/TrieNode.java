@@ -3,15 +3,9 @@ package diccionario.model;
 import java.util.*;
 
 public class TrieNode {
-    private Map<Character, TrieNode> children;
-    private boolean isEndOfWord;
-    private Set<String> wordIds; // Para almacenar IDs de palabras que terminan aquí
-
-    public TrieNode() {
-        this.children = new HashMap<>();
-        this.isEndOfWord = false;
-        this.wordIds = new HashSet<>();
-    }
+    private Map<Character, TrieNode> children = new HashMap<>();
+    private boolean isEndOfWord = false;
+    private Set<String> words = new HashSet<>(); // Palabras completas que terminan aquí
 
     public Map<Character, TrieNode> getChildren() {
         return children;
@@ -25,23 +19,7 @@ public class TrieNode {
         isEndOfWord = endOfWord;
     }
 
-    public Set<String> getWordIds() {
-        return wordIds;
-    }
-
-    public void addWordId(String wordId) {
-        wordIds.add(wordId);
-    }
-
-    public boolean hasChild(char c) {
-        return children.containsKey(c);
-    }
-
-    public TrieNode getChild(char c) {
-        return children.get(c);
-    }
-
-    public void addChild(char c, TrieNode node) {
-        children.put(c, node);
+    public Set<String> getWords() {
+        return words;
     }
 }

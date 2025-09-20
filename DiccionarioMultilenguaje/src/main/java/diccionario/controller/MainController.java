@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.collections.FXCollections;
 import javafx.scene.layout.GridPane;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Side;
 import java.util.*;
 
 public class MainController {
@@ -29,6 +30,7 @@ public class MainController {
 
     private DictionaryServiceImpl dictionaryService;
     private ResourceBundle bundle;
+    private ContextMenu autoCompleteMenu = new ContextMenu();
 
     @FXML
     public void initialize() {
@@ -68,21 +70,32 @@ public class MainController {
             }
         });
 
-        // 4. Búsqueda en tiempo real
-        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue == null || newValue.trim().isEmpty()) {
-                refreshWordList();
-            } else {
-                java.util.Timer timer = new java.util.Timer();
-                timer.schedule(new java.util.TimerTask() {
-                    @Override
-                    public void run() {
-                        javafx.application.Platform.runLater(() -> {
+        // 4. Autocompletado en el campo de búsqueda usando Trie
+        searchField.textProperty().addListener((obs, oldText, newText) -> {
+            if (newText != null && !newText.isEmpty()) {
+                Language lang = languageComboBox.getValue();
+                List<WordEntry> suggestions = dictionaryService.autocomplete(newText, lang);
+                if (!suggestions.isEmpty()) {
+                    autoCompleteMenu.getItems().clear();
+                    for (WordEntry word : suggestions) {
+                        String suggestion = word.getTranslation(lang);
+                        MenuItem item = new MenuItem(suggestion);
+                        item.setOnAction(e -> {
+                            searchField.setText(suggestion);
+                            autoCompleteMenu.hide();
                             handleSearch();
-                            timer.cancel();
                         });
+                        autoCompleteMenu.getItems().add(item);
                     }
-                }, 300);
+                    if (!autoCompleteMenu.isShowing()) {
+                        autoCompleteMenu.show(searchField, Side.BOTTOM, 0, 0);
+                    }
+                } else {
+                    autoCompleteMenu.hide();
+                }
+            } else {
+                autoCompleteMenu.hide();
+                refreshWordList();
             }
         });
 
@@ -109,19 +122,19 @@ public class MainController {
         updateTexts();
     }
 
-  private void updateTexts() {
-    titleLabel.setText(bundle.getString("app.title"));
-    statusLabel.setText(bundle.getString("status.ready"));
-    addButton.setText(bundle.getString("button.add"));
-    editButton.setText(bundle.getString("button.edit"));
-    deleteButton.setText(bundle.getString("button.delete"));
-    statsButton.setText(bundle.getString("button.stats"));
-    saveButton.setText(bundle.getString("button.save"));
-    loadButton.setText(bundle.getString("button.load"));
-    searchButton.setText(bundle.getString("button.search"));
-    searchLabel.setText(bundle.getString("label.search"));
-    languageLabel.setText(bundle.getString("label.language"));
-    searchField.setPromptText(bundle.getString("prompt.search"));
+    private void updateTexts() {
+        titleLabel.setText(bundle.getString("app.title"));
+        statusLabel.setText(bundle.getString("status.ready"));
+        addButton.setText(bundle.getString("button.add"));
+        editButton.setText(bundle.getString("button.edit"));
+        deleteButton.setText(bundle.getString("button.delete"));
+        statsButton.setText(bundle.getString("button.stats"));
+        saveButton.setText(bundle.getString("button.save"));
+        loadButton.setText(bundle.getString("button.load"));
+        searchButton.setText(bundle.getString("button.search"));
+        searchLabel.setText(bundle.getString("label.search"));
+        languageLabel.setText(bundle.getString("label.language"));
+        searchField.setPromptText(bundle.getString("prompt.search"));
     }
 
     private void loadInitialData() {
