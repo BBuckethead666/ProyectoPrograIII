@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import diccionario.util.IdGenerator;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -18,11 +19,17 @@ public class AddWordController {
     @FXML public TextArea examplesField;
     @FXML public TextField tagsField;
     
-    @FXML
-    public void initialize() {
-        System.out.println("✅ AddWordController inicializado");
+   @FXML
+public void initialize() {
+    System.out.println("✅ AddWordController inicializado");
+    if (idField != null && (idField.getText() == null || idField.getText().trim().isEmpty())) {
+        // Usa la traducción principal como base para el ID, o un valor por defecto si está vacío
+        String base = (spanishField != null && !spanishField.getText().trim().isEmpty())
+                        ? spanishField.getText().trim()
+                        : "palabra";
+        idField.setText(IdGenerator.generateWordId(base));
     }
-    
+}
     public String getId() { 
         return idField != null ? idField.getText() : ""; 
     }

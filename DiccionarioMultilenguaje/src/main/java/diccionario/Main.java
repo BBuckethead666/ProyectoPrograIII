@@ -1,3 +1,7 @@
+/**
+ * The Main class in this Java application sets up the user interface with localization support using
+ * resource bundles.
+ */
 package diccionario;
 
 import java.util.Locale;

@@ -37,24 +37,6 @@
       ]
     },
     {
-      "id": "bird",
-      "translations": {
-        "ENGLISH": "bird",
-        "SPANISH": "pájaro",
-        "FRENCH": "oiseau",
-        "GERMAN": "Vogel"
-      },
-      "definition": "A warm-blooded egg-laying vertebrate",
-      "examples": [
-        "Birds can fly",
-        "I saw a bird"
-      ],
-      "tags": [
-        "noun",
-        "animal"
-      ]
-    },
-    {
       "id": "fish",
       "translations": {
         "ENGLISH": "fish",
@@ -73,24 +55,6 @@
       ]
     },
     {
-      "id": "lion",
-      "translations": {
-        "ENGLISH": "lion",
-        "SPANISH": "león",
-        "FRENCH": "lion",
-        "GERMAN": "Löwe"
-      },
-      "definition": "A large tawny-colored big cat",
-      "examples": [
-        "The lion roars",
-        "Lions live in Africa"
-      ],
-      "tags": [
-        "noun",
-        "animal"
-      ]
-    },
-    {
       "id": "tiger",
       "translations": {
         "ENGLISH": "tiger",
@@ -102,42 +66,6 @@
       "examples": [
         "The tiger hunts",
         "Tigers are strong"
-      ],
-      "tags": [
-        "noun",
-        "animal"
-      ]
-    },
-    {
-      "id": "horse",
-      "translations": {
-        "ENGLISH": "horse",
-        "SPANISH": "caballo",
-        "FRENCH": "cheval",
-        "GERMAN": "Pferd"
-      },
-      "definition": "A large domesticated animal used for riding",
-      "examples": [
-        "The horse runs",
-        "I ride a horse"
-      ],
-      "tags": [
-        "noun",
-        "animal"
-      ]
-    },
-    {
-      "id": "cow",
-      "translations": {
-        "ENGLISH": "cow",
-        "SPANISH": "vaca",
-        "FRENCH": "vache",
-        "GERMAN": "Kuh"
-      },
-      "definition": "A large domesticated animal raised for milk or meat",
-      "examples": [
-        "The cow gives milk",
-        "We saw a cow"
       ],
       "tags": [
         "noun",
@@ -318,24 +246,6 @@
       "examples": [
         "I boiled an egg",
         "Eggs are healthy"
-      ],
-      "tags": [
-        "noun",
-        "food"
-      ]
-    },
-    {
-      "id": "sugar",
-      "translations": {
-        "ENGLISH": "sugar",
-        "SPANISH": "azúcar",
-        "FRENCH": "sucre",
-        "GERMAN": "Zucker"
-      },
-      "definition": "A sweet substance",
-      "examples": [
-        "I added sugar",
-        "Sugar is sweet"
       ],
       "tags": [
         "noun",
@@ -899,8 +809,80 @@
         "noun",
         "object"
       ]
+    },
+    {
+      "id": "sugar",
+      "translations": {
+        "SPANISH": "az�car",
+        "GERMAN": "Zucker",
+        "ENGLISH": "sugar",
+        "FRENCH": "sucre"
+      },
+      "definition": "A sweet substance",
+      "examples": [
+        "I added sugar",
+        "Sugar is sweet"
+      ],
+      "tags": [
+        "noun",
+        "food"
+      ]
+    },
+    {
+      "id": "lion",
+      "translations": {
+        "SPANISH": "leon",
+        "GERMAN": "Löwe",
+        "ENGLISH": "lion",
+        "FRENCH": "lion"
+      },
+      "definition": "A large tawny-colored big cat",
+      "examples": [
+        "The lion roars",
+        "Lions live in Africa"
+      ],
+      "tags": [
+        "noun",
+        "animal"
+      ]
+    },
+    {
+      "id": "bird",
+      "translations": {
+        "SPANISH": "pájaro",
+        "GERMAN": "Vogel",
+        "ENGLISH": "bird",
+        "FRENCH": "oiseau"
+      },
+      "definition": "A warm-blooded egg-laying vertebrate",
+      "examples": [
+        "Birds can fly",
+        "I saw a bird"
+      ],
+      "tags": [
+        "noun",
+        "animal"
+      ]
+    },
+    {
+      "id": "cow",
+      "translations": {
+        "SPANISH": "vaca",
+        "GERMAN": "Kuh",
+        "ENGLISH": "cow",
+        "FRENCH": "vache"
+      },
+      "definition": "A large domesticated animal raised for milk or meat",
+      "examples": [
+        "The cow gives milk",
+        "We saw a cow"
+      ],
+      "tags": [
+        "noun",
+        "animal"
+      ]
     }
   ],
-  "lastModified": "Sat Sep 20 15:48:30 COT 2025",
+  "lastModified": "Sun Sep 21 18:03:15 COT 2025",
   "version": "1.0"
 }

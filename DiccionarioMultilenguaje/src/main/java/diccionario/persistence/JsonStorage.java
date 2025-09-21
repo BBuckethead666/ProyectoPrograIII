@@ -1,7 +1,6 @@
 package diccionario.persistence;
 
 import diccionario.model.WordEntry;
-import diccionario.model.Language;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;

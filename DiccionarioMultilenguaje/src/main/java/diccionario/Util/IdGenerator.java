@@ -1,4 +1,4 @@
-package diccionario.Util;
+package diccionario.util;
 import java.util.UUID;
 
 public class IdGenerator {
