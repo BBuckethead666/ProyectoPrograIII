@@ -1,3 +1,7 @@
+/**
+ * The MainController class in a Java application manages the user interface for a dictionary, allowing
+ * users to search, add, edit, delete words, view statistics, and save/load dictionary data.
+ */
 package diccionario.controller;
 
 import diccionario.model.WordEntry;
@@ -32,6 +36,8 @@ public class MainController {
     private ResourceBundle bundle;
     private ContextMenu autoCompleteMenu = new ContextMenu();
 
+   // The above Java code is an example of a JavaFX application that implements a simple dictionary
+   // application. Here is a breakdown of what the code is doing:
     @FXML
     public void initialize() {
         // 1. Inicializar servicio
@@ -122,6 +128,10 @@ public class MainController {
         updateTexts();
     }
 
+    /**
+     * The `updateTexts` function updates the text of various labels and buttons in a Java GUI based on
+     * the values retrieved from a resource bundle.
+     */
     private void updateTexts() {
         titleLabel.setText(bundle.getString("app.title"));
         statusLabel.setText(bundle.getString("status.ready"));
@@ -202,22 +212,44 @@ public class MainController {
                     return;
                 }
 
-                WordEntry newWord = new WordEntry();
-                newWord.setId(controller.getId());
+   // ...dentro de handleAddWord()...
+WordEntry newWord = new WordEntry();
+newWord.setId(controller.getId());
 
-                if (!controller.getSpanish().isEmpty())
-                    newWord.addTranslation(Language.SPANISH, controller.getSpanish());
-                if (!controller.getEnglish().isEmpty())
-                    newWord.addTranslation(Language.ENGLISH, controller.getEnglish());
-                if (!controller.getFrench().isEmpty())
-                    newWord.addTranslation(Language.FRENCH, controller.getFrench());
-                if (!controller.getGerman().isEmpty())
-                    newWord.addTranslation(Language.GERMAN, controller.getGerman());
+if (!controller.getSpanish().isEmpty())
+    newWord.addTranslation(Language.SPANISH, controller.getSpanish());
+if (!controller.getEnglish().isEmpty())
+    newWord.addTranslation(Language.ENGLISH, controller.getEnglish());
+if (!controller.getFrench().isEmpty())
+    newWord.addTranslation(Language.FRENCH, controller.getFrench());
+if (!controller.getGerman().isEmpty())
+    newWord.addTranslation(Language.GERMAN, controller.getGerman());
 
-                dictionaryService.addWord(newWord);
-                refreshWordList();
+// Validar si ya existe la palabra en algún idioma
+boolean exists = false;
+for (Language lang : Language.values()) {
+    String newTranslation = newWord.getTranslation(lang);
+    if (newTranslation != null && !newTranslation.isEmpty()) {
+        exists = dictionaryService.getAllWords().stream()
+            .anyMatch(word -> {
+                String existing = word.getTranslation(lang);
+                return existing != null && existing.equalsIgnoreCase(newTranslation);
+            });
+        if (exists) {
+            showWarning("Advertencia", "La palabra \"" + newTranslation + "\" ya está guardada en " + lang.getDisplayName() + ".");
+            break;
+        }
+    }
+}
 
-                statusLabel.setText(bundle.getString("button.add") + ": " + newWord.getId());
+if (exists) {
+    return; // No agregar la palabra si ya existe
+}
+
+// Si no existe, agregar normalmente
+dictionaryService.addWord(newWord);
+refreshWordList();
+statusLabel.setText(bundle.getString("button.add") + ": " + newWord.getId());
             }
 
         } catch (Exception e) {
@@ -280,6 +312,10 @@ public class MainController {
         loadInitialData();
     }
 
+    /** 
+     * @param title
+     * @param message
+     */
     // Métodos utilitarios para mostrar diálogos
     private void showInfo(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -289,6 +325,10 @@ public class MainController {
         alert.showAndWait();
     }
 
+    /** 
+     * @param title
+     * @param message
+     */
     private void showWarning(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle(title);
@@ -297,6 +337,10 @@ public class MainController {
         alert.showAndWait();
     }
 
+    /** 
+     * @param title
+     * @param message
+     */
     private void showError(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
@@ -305,6 +349,8 @@ public class MainController {
         alert.showAndWait();
     }
 
+   // The above code is a Java method `handleEditWord()` that is triggered when the user wants to edit
+   // a word entry in a dictionary application. Here is a breakdown of what the code does:
     @FXML
     private void handleEditWord() {
         WordEntry selected = wordsListView.getSelectionModel().getSelectedItem();

@@ -1,3 +1,6 @@
+/**
+ * The Trie class implements a trie data structure for storing and manipulating words efficiently.
+ */
 package diccionario.model;
 
 import java.util.*;
